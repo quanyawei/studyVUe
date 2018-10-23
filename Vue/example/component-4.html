@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>component组件</h1>
+    <hr>
+    <div id="app">
+        <component v-bind:is="who"></component>
+        <button @click="changeComponent">切换</button>
+    </div>
+
+    <script>
+        var componentA={
+            template:`<div style="color:red">I'am A</div>`
+        }
+        var componentB={
+            template:`<div style="color:green">I'am B</div>`
+        }
+        var componentC={
+            template:`<div style="color:pink">I'am C</div>`
+        }
+        var app =new Vue({
+            el:'#app',
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC,
+            },
+            data:{
+                who:'componentB',
+            },
+            methods: {
+                changeComponent:function(){
+                    if(this.who=='componentA'){
+                        this.who="componentB"
+                    }else if(this.who=='componentB'){
+                        this.who="componentC"
+                    }else{
+                        this.who="componentA"
+                    }
+                }
+            }
+        });
+    </script>
+</body>

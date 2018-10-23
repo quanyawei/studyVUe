@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>template模板三张写法</h1>
+    <hr>
+    <div id="app">
+
+    </div>
+    <template id="dd2">
+            <h2 style="color:red">我是模板写法二</h2>
+    </template>
+    <script type="x-template" id="dd3">
+            <h2 style="color:red">我是模板写法三</h2>
+    </script>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+            },
+            // template:"#dd2",
+            template:"#dd3"
+            // template:`
+            //     <h2 style="color:red">我是模板写法一</h2>
+            // `
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-bind</h1>
+    <hr>
+    <div id="app">
+        <img v-bind:src="imgSrc" width="300px">
+        <a :href="baidu" target="_blank">baidu</a>
+        <hr>
+        <div :class="ClassName">1.绑定Class</div>
+        <div :class="{classA:isOk}">2.绑定Class中的判断</div>
+        <div :class="[classA,classB]">3.绑定Class中的数组</div>
+        <div :class="isOk?classA:classB">4.绑定Class中的三元运算符</div>
+        <hr>
+        <div>
+            <input type="checkbox" id="isOk" v-model="isOk">
+            <label for="isOk">isOk={{isOk}}</label>
+        </div>
+        <hr>
+        <div :style="{color:blue,fontSize:font}">5.绑定Style</div>
+        <div :style="styleObject">6.绑定Style对象</div>
+    </div>
+    <style>
+        .classA{
+            color: red;
+        }
+        .classB{
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+                isLogin:true,
+                imgSrc:"https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=c635d3753efa828bce239be3cd1f41cd/0eb30f2442a7d933b29eb303a04bd11373f0018f.jpg",
+                baidu:"http://www.baidu.com",
+                ClassName:'classA',
+                isOk:true,
+                classA:'classA',
+                classB:'classB',
+                blue:'blue',
+                font:'25px',
+                styleObject:{
+                    color:'green',
+                    fontSize:'30px'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-for</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for="item in sortitems">
+                {{item}}
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="student in sortStudents">
+                {{student.name}}---{{student.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+               items:[11,55,22,45,32,15,21,20,80],
+               students:[
+                   {name:'小明',age:23},
+                   {name:'小米',age:93},
+                   {name:'小了',age:53},
+                   {name:'小吃',age:43},
+                   {name:'小是',age:43},
+                   {name:'小想',age:33},
+                   {name:'心事',age:12},
+                ]
+            },
+            computed: {
+                sortitems:function(){
+                    return this.items.sort(sortNumber);
+                },
+                sortStudents:function(){
+                    return  sortByKey(this.students,"age")
+                }
+            }
+        });
+        function sortNumber(a,b){
+            return a-b
+        }
+        //数组对象排序方法
+        function sortByKey(arry,key){
+            return arry.sort(function(a,b){
+                var x=a[key];
+                var y=b[key];
+                return ((x<y)?-1:((x>y)?1:0));
+            })
+        }
+    </script>
+</body>
+</html>

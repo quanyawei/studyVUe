@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>component组件</h1>
+    <hr>
+    <div id="app">
+        <panda></panda>
+    </div>
+    <script>
+        // 父引用子
+        var city={
+            template:`<div style="color:green">siChuan of China!</div>`
+        }
+        // 局部组件
+        var pandaComponent = {
+            template:`
+            <div style="color:red">
+                <P> Panda from China!</p>
+                <city></city>
+            </div>`,
+            components: {
+                "city":city
+            }
+        }
+        var app =new Vue({
+            el:'#app',
+            components:{
+                "panda":pandaComponent
+            },
+            data:{
+            },
+        });
+    </script>
+</body>
